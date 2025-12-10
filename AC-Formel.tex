@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+% Allow the use of german language
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb} % oder amsfonts für mathematische Definitionsmengen
+\usepackage{amsthm} % für q.e.d.
+\usepackage{cancel}
+\usepackage{setspace}
+\onehalfspacing  % oder \linespread{1.2}
+\usepackage{titlesec}
+
+\titleformat{\subsection}[block]   % sorgt für Blocksatz
+  {\normalfont\normalsize\bfseries}  % Größe und Format anpassen
+  {\thesubsection} % mit Nummer
+  {1em}{} % Abstand links
+  \titleformat{\section}[block]   % sorgt für Blocksatz
+  {\normalfont\normalsize\bfseries}  % Größe und Format anpassen
+  {} % keine Nummer
+  {0pt}{} % Abstand links
+  
+\begin{document}
+\tableofcontents
+\newpage
+
+\section{Anleitung zur Bestimmung von Stammfunktionen von Ableitungen von $e$-Funktionen (welche mit der Produktregel gebildet wurden)}
+\subsection{Beispielrechnung}
+Man ermittle die Stammfunktion von $f(x) =(x+2)\cdot e^{\frac{3}{5}-\frac{1}{5}x}$.\\\\
+Da der $e$-Term aufgeleitet gleich bleibt, kann dieser zunächst vernachlässigt werden. Wichtig ist die innere Ableitung des $e$-Terms, also die Ableitung des Exponenten, welche $-\frac{1}{5}$ ist.\\\\
+Um die Ableitung rückwärts zu rechnen bzw. zu neutralisieren, verwende man die Gegenoperation, d.h. mal $-5$:
+\begin{align*}
+    -5 \cdot (x+2)
+\end{align*}
+Da die Konstante $2$ sich bei der Ableitungsrechnung aus Ableitung des Klammerausdrucks und der urprünglichen Konstante davon zusammensetzt, setze man zunächst $A$ anstelle $2$ ein.
+\begin{align*}
+    -5x -5A + (-5)
+\end{align*}
+wobei $-5$ auf der rechten Seite des $+$ die Ableitung von $-5x+B$ ist, wobei $B$ die ursprüngliche Konstante des Klammerterms ist.\\
+Da wir nun in der Ableitungsschreibweise sind, mit $-5$ rechts vom $+$, ergänze man zusätzlich die Ableitung des Exponenten von $e$ auf der linken Seite, d.h.:
+\begin{align*}
+    -\frac{1}{5}\cdot(-5x-5\cdot A)&+(-5)\\
+    \Rightarrow x+A &+ (-5)
+\end{align*}
+Nun muss $A+(-5) =2$ sein, da die Ableitung $x+2$ ist:
+\begin{align*}
+    2 = A +(-5) \Leftrightarrow A =2+5=7
+\end{align*}
+Nun setze man $A=7$, wobei die Ableitungsterme links und rechts nun weggelassen werden können:
+\begin{align*}
+    -5x&-5\cdot 7\\
+    -5x &- 35
+\end{align*}
+Die Stammfunktion $F$ lautet somit:
+\begin{align*}
+    F(x)=(-5x-35)\cdot e^{\frac{3}{5}-\frac{1}{5}x}
+\end{align*}
+
+\newpage
+\subsection{Beispielrechnung mit Erweiterung}
+Sei die Funktion $f$ mit $f(x) = x^2 \cdot e^{-x}$ eine zu integrierende Funktion:
+\begin{align}
+    &f(x)= \left[-1\cdot (\frac{x^2}{-1} + \frac{A}{-1}) + (-2x)\right]\cdot e^{-x}\\
+    &A+(-2x)=0 \Leftrightarrow A=2x\\
+    &\text{Wenn A = 2x, dann muss dies ebenfalls abgeleitet werden, d.h.:}&\nonumber \\
+    &\frac{d}{dx}2x = 2\\
+    &\text{somit:}& \nonumber \\
+    &f(x)= \left[-1\cdot (\frac{x^2}{-1} + \frac{A}{-1}) + (-2x+2)\right]\cdot e^{-x}\\
+    &A+(-2x+2)=0 \Leftrightarrow A=2x+2\\
+    &\Rightarrow \int f(x) \, dx= \left[\frac{x^2}{-1} + \frac{2x+2}{-1}\right]\cdot e^{-x} \Leftrightarrow \left[-x^2 -2x-2\right]\cdot e^{-x}\\
+    &\text{Die Stammfunktion F lautet daher:} \nonumber \\
+    &F(x)= -(x^2+2x+2)\cdot e^{-x}
+\end{align}
+
+\newpage
+\subsection{Allgemeine Formel}
+Um die Regel zu verallgemeinern, betrachte man die Funktion f:\\
+$$f(x) =(ax^n+b)\cdot e^{k \cdot x}$$
+Nun teile man durch die Ableitung des Exponenten von $e$, um den ursprünglichen Leitkoeffizienten $A$ zu erhalten. Zusätzlich bilde man die Ableitung nach der Produktregel, d.h. links vom $+$ mal Ableitung des Exponenten des $e$-Terms und rechts die Ableitung des Klammerterms:
+$$f(x)= \left[k \cdot\left(\frac{a}{k} \cdot x^n +\frac{B}{k}\right) + \frac{d}{dx} \cdot\left(\frac{a}{k} \cdot x^n +\frac{B}{k}\right) \right] \cdot e^{k \cdot x}$$
+wobei $A= \frac{a}{k}$ gilt und $B$ eine Variable ist, welche beliebig sein kann, d.h. \textit{universal} ist:
+$$f(x)= \left[\cancel k \cdot\left(\frac{a}{\cancel k} \cdot x^n +\frac{B}{\cancel k}\right) + \frac{d}{dx} \cdot\left(Ax^n + \frac{B}{k}\right) \right] \cdot e^{k \cdot x}$$
+$$ \Leftrightarrow f(x)= \left[a \cdot x^n + \underbrace{B + n\cdot Ax^{n-1}}_{=b}\right] \cdot e^{k \cdot x}$$
+Um die Ursprungskonstante $C$ zu erhalten, welche $C=\frac{B}{k}$ ist, löse man zunächst folgende Gleichung nach B auf:
+$$b=B + n\cdot Ax^{n-1} \Leftrightarrow B= b- n\cdot Ax^{n-1}$$
+Für die Stammfunktion $F$ gilt daher:
+$$F(x)=\int f(x)\, dx= \left[ Ax^n + \frac{b-n\cdot Ax^{n-1}}{k}\right] \cdot e^{kx}$$
+$$\Leftrightarrow F(x)=\int f(x)\, dx= \left[ \underbrace{\frac{a}{k}}_{=A}x^n + \underbrace{\frac{b-\left(n\cdot \frac{a}{k}x^{n-1}\right)}{k}}_{=C}\right] \cdot e^{kx}$$
+$$\Leftrightarrow F(x)=\int f(x)\, dx= \frac{1}{k} \cdot\left[ax^n + \underbrace{b-n\cdot \frac{a}{k}x^{n-1}}_{=B}\right] \cdot e^{kx}$$\\
+Folglich lässt sich mit der Formel $\frac{1}{k}\cdot\left(b-\frac{a}{k}\right)$ die Ursprungskonstante $C$ bestimmen. Diese gilt, wenn die Ableitung des Klammerterms eine Konstante ist.\\\\
+\textbf{Achtung (Lemma):} Besitzt die Ableitung des Klammerterms ein $x$, d.h. $A\cdot x^n\quad n \in \mathbb{R} \setminus \{0,1\}$ wird abgeleitet, so muss die Ableitung des berechneten $C$'s mit einbezogen werden, da diese dadurch ebenfalls ein $x$ enthält. Konkret bedeutet dies:\\
+Erkennt man, dass die Ableitung des Summanden mit dem höchten Exponent keine Konstante ist, sondern einen Exponenten besitzt mit $n \in \mathbb{R} \setminus \{0,1\}$, so muss das Verfahren erneut angewandt werden, d.h. die neue Ableitungs des berechneten $C$'s muss ebenfalls an Stelle der Ableitung des Klammerterms ergänzt werden, da diese ebenfalls Teil der Ableitung des Klammerterms ist.\\
+Dieser Vorgang wird solange wiederholt, bis man für die Ableitung von $C$ einen Term ohne $x$ erhält, d.h. $(\,\,)^{n-n}$, somit eine Konstante hat. Alternativ: Es muss $n$-mal abgeleitet werden.\\\\
+\textbf{Beispiel:} Sei $f$ eine zu integrierende Funktion mit $f(x)= \left(24x^2+28x+10\right)e^{3x}$.\\\\
+Setze man nun die einzelnen Werte für die Variablen der Formel ein:
+$$F(x)=\int f(x)\, dx= \left[\frac{a}{k}x^n + \frac{b-n\cdot\frac{a}{k}x^{n-1}}{k}\right] \cdot e^{kx}$$
+$$\Rightarrow F(x)=\int f(x)\, dx= \left[ \underbrace{\frac{24}{3}}_{=A}x^2 + \underbrace{\frac{(28x+10)-2\cdot \left(\frac{24}{3}x\right)}{3}}_{=C}\right] \cdot e^{kx}$$\\
+so erhält man für $A= 8$, somit $8x^2$, und die Gleichung $\frac{28x + 10 - 16x}{3}=\frac{B}{3}= C$.
+$$B_1= 12x+10$$
+$$C_1= 4x + \frac{10}{3}$$
+Dieses $C$ enthält nun ein $x$, daher muss $C_1\,'$ ergänzt werden zur Ableitung des Klammerterms:
+$$C=\frac{28x+10-1 6x + 4}{3}$$
+$$\Leftrightarrow C=\frac{12x+6}{3}$$
+$$\Leftrightarrow \boxed{C=4x+2}$$
+Der vordere Teil $4x$ ist derselbe wie bei $C_1$, dies bedeutet er wurde bereits ergänzt, somit bleibt nur noch eine Konstante. Die Stammfunktion wurde gefunden.
+$$\Rightarrow F(x)= \left(8x^2 + 4x + 2\right)e^{3x}$$\\
+\textbf{Alternativ:}\\
+Ansatz:
+$$f(x)= \left[k \cdot\left(\frac{a}{k} \cdot x^n +\frac{B}{k} + \frac{D}{k}...\right) + \frac{d}{dx} \cdot\left(\frac{a}{k} \cdot x^n +\frac{B}{k} + \frac{D}{k}...\right) \right] \cdot e^{k \cdot x}$$\\
+Statt $B$ universell zu betrachten, kann für jeden Summanden eine eigene Variable zugeordnet werden. Dies macht die Rechnung übersichtlicher:
+$$\frac{28x - 16x}{3}=\frac{B}{3}= C_1 \Rightarrow \boxed{C_1=4x}$$
+wobei $28x$ der 2. Summand aus $f(x)$ ist.\\\\
+$$\frac{10-4}{3}=\frac{D}{3}= C_2 \Rightarrow \boxed{C_2=6}$$
+wobei $10$ der 3. Summand aus $f(x)$ ist und $4$ die Ableitung von $C_1$ ist.\newpage
+\noindent\textbf{Überprüfung:}\\
+Man differenziere die vermeintliche Stammfunktion $F$ mit $\left(8x^2 + 4x + 2\right)e^{3x}$, um $f(x)$ zu erhalten.
+\begin{proof}
+$$\frac{d}{dx}\,F(x) = \frac{d}{dx}\,\left(\left(8x^2 + 4x + 2\right)e^{3x}\right)$$
+$$\Leftrightarrow f(x)=3 \cdot \left(8x^2 + 4x + 2\right)e^{3x} + e^{3x} \cdot 16x +4$$
+$$\Leftrightarrow f(x)= \left(24x^2 + 12x + 6 + 16x +4\right)e^{3x}$$
+$$\Leftrightarrow f(x)= \left(24x^2 + 28x + 10\right)e^{3x}$$
+\end{proof}
+\hfill q.e.d
+
+\end{document}
