@@ -10,4 +10,6 @@ _Drei (oder mehr) Rechtschreibfehler sind drin, jedoch in der Version noch nicht
 \
 **UPDATE**\
 Nun ist ein Bild hochgeladen mit einer verallgemeinertern, verbesserten Formel. Aktuell wird an einer wissenschaftlich-mathematischen Arbeit gearbeitet, welche Herleitung, Vergleich mit bestehenden Methoden und Grundlagenwissen liefert.\
-Bei meiner Recherche bin ich auf ähnliche Methoden gestoßen wie meine Formel. Diese sind bspw. Tabulator Method (DI-Method). Theoretisch kann. man die Formel auch als Summenzeichen schreiben, ist jedoch so wie sie jetzt ist am besten und einfachsten zu benutzen und verstehem. Außerdem kann man die Formel als Verallgemeinerung der partiellen Integration fassen, da sie die einzelnen Schritte dieser in eine Formel verpackt.
+Bei meiner Recherche bin ich auf ähnliche Methoden gestoßen wie meine Formel. Diese sind bspw. Tabulator Method (DI-Method). Theoretisch kann. man die Formel auch als Summenzeichen schreiben, ist jedoch so wie sie jetzt ist am besten und einfachsten zu benutzen und verstehem. Außerdem kann man die Formel als Verallgemeinerung der partiellen Integration fassen, da sie die einzelnen Schritte dieser in eine Formel verpackt.\
+\
+Außerdem ist der Name nun von AC zu ac geändert worden, was an der Bennenung der Variablen liegt, die Integrationskonstante C wurde vorher nicht berücksichtigt, weswegen ich das große C zum kleinen c abgeändert habe.
